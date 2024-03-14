@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MovieApp {
     ArrayList<Movie> daftarFilm = new ArrayList<Movie>();
@@ -35,34 +36,37 @@ public class MovieApp {
                     System.out.println("\nPesanan berhasil dengan detail");
                     System.out.printf("Judul : %s\n",baru.film.movieTitle);
                     System.out.printf("Jumlah : %d\n",baru.ticket);
-                    System.out.printf("Booking ID : %d\n",baru.id);
+                    System.out.printf("Booking ID : %s\n",baru.id);
                     return;
                 }
             }
         }
         System.out.printf("\nPesanan %s gagal\n\n",film.movieTitle);
     }
-    int generateId(){
+    String generateId(){
         // return String.format("00%d",daftarBooking.size()+1);
-        return daftarBooking.size()+1;
+        // return daftarBooking.size()+1;
+        Random rand = new Random();
+        return String.format("MOV%d\n",rand.nextInt(999-100+1)+100);
+        // return rand.nextInt(999-100+1)+100;
     }
     void displayBooking(){
         for(Booking e:daftarBooking){
-                System.out.printf("Pesanan %d\n",e.id);
+                System.out.printf("Pesanan %s\n",e.id);
                 System.out.printf("Film %s\n",e.film.movieTitle);
                 System.out.printf("Jumlah %d kursi\n",e.ticket);
         }
 
     }
-    void searchBooking(int idBook){
+    void searchBooking(String idBook){
         for(Booking e:daftarBooking){
-            if(e.id==idBook){
-                System.out.printf("\nPesanan %d\n",e.id);
+            if(e.id==idBook.trim()){
+                System.out.printf("\nPesanan %s\n",e.id);
                 System.out.printf("Film : %s\n",e.film.movieTitle);
                 System.out.printf("Jumlah : %d kursi\n",e.ticket);
                 return;
             }
         }
-        System.out.printf("\nPesanan %d tidak ditemukan\n",idBook);
+        System.out.printf("\nPesanan %s tidak ditemukan\n",idBook);
     }
 }

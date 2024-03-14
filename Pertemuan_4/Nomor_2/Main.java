@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         MovieApp app = new MovieApp();
@@ -12,7 +14,11 @@ public class Main {
         app.bookMovie(avenger,20);
         app.bookMovie(dune,50);
         app.displayMovie();
-        app.searchBooking(1);
-        app.searchBooking(2);
+        app.displayBooking();
+        System.out.printf("Masukkan ID Booking");
+        Scanner scan = new Scanner(System.in);
+        String idBook = scan.nextLine();
+        app.searchBooking(idBook);
+
     }
 }
