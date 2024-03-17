@@ -10,9 +10,9 @@ public class Keranjang {
     }
 
     void tambahBarang(Barang barang){
-        if(jmlBarang+barang.jumlahBarang <= 5){
+        if(jmlBarang+barang.getJumlahBarang() <= 5){
             listBarang.add(barang);
-            jmlBarang +=barang.jumlahBarang;
+            jmlBarang +=barang.getJumlahBarang();
             System.out.println("Berhasil memasukan ke kranjang");
         }else{
             System.out.println("Wes too, Keranjange wes mbludhag!!");
@@ -23,7 +23,7 @@ public class Keranjang {
         int harga = 0;
         for ( Barang barang: listBarang
              ) {
-         harga += barang.hargaBarang * barang.jumlahBarang;
+         harga += barang.getHargaBarang() * barang.getJumlahBarang();
         }
         return harga;
     }
@@ -32,7 +32,7 @@ public class Keranjang {
         System.out.println( "Jumlah Barang Di Keranjang Saat Ini : " + jmlBarang);
         System.out.println( "Barang Pada Keranjang: ");
         for(int i = 0; i<listBarang.size(); i++){
-            System.out.println("# " + listBarang.get(i).namaBarang + ", jumlah : " + listBarang.get(i).jumlahBarang);
+            System.out.println("# " + listBarang.get(i).getNamaBarang() + ", jumlah : " + listBarang.get(i).getJumlahBarang());
         }
         System.out.println("Total Harga Yang Harus di Bayar : " + totalHarga());
     }
