@@ -1,33 +1,41 @@
 import java.util.ArrayList;
 
 public class Keranjang {
-    private ArrayList<Barang> daftarBarang;
-    private int totalBarang;
-    private int jumlahTotal;
+
+    int jmlBarang = 0, totalBerat = 0;
+
+    ArrayList<Barang> listBarang = new ArrayList<>();
 
     public Keranjang() {
-        daftarBarang = new ArrayList<Barang>();
-        totalBarang = 0;
-        jumlahTotal = 0;
     }
 
-    public void tambahBarang(Barang barangBaru) {
-        if (totalBarang < 5) {
-            daftarBarang.add(barangBaru);
-            totalBarang += barangBaru.getJumlahBarang();
-            jumlahTotal += barangBaru.totalHarga();
-            System.out.println("Berhasil memasukkan keranjang");
-        } else {
-            System.out.println("Gagal, keranjang penuh");
+    void tambahBarang(Barang barang){
+        if(jmlBarang+barang.jumlahBarang <= 5){
+            listBarang.add(barang);
+            jmlBarang +=barang.jumlahBarang;
+            System.out.println("Berhasil memasukan ke kranjang");
+        }else{
+            System.out.println("Wes too, Keranjange wes mbludhag!!");
         }
+
+    }
+    int totalHarga(){
+        int harga = 0;
+        for ( Barang barang: listBarang
+             ) {
+         harga += barang.hargaBarang * barang.jumlahBarang;
+        }
+        return harga;
     }
 
-    public void printHasil() {
-        System.out.printf("Jumlah barang di keranjang saat ini : %d\n", totalBarang);
-        System.out.println("Barang pada keranjang :");
-        for (Barang e : daftarBarang) {
-            System.out.printf("# %s, jumlah : %d\n", e.getNamaBarang(), e.getJumlahBarang());
+    void printHasil() {
+        System.out.println( "Jumlah Barang Di Keranjang Saat Ini : " + jmlBarang);
+        System.out.println( "Barang Pada Keranjang: ");
+        for(int i = 0; i<listBarang.size(); i++){
+            System.out.println("# " + listBarang.get(i).namaBarang + ", jumlah : " + listBarang.get(i).jumlahBarang);
         }
-        System.out.printf("Total harga yang dibayar : %d", jumlahTotal);
+        System.out.println("Total Harga Yang Harus di Bayar : " + totalHarga());
     }
+
+
 }
