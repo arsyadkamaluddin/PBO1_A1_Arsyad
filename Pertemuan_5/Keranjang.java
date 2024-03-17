@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Keranjang {
 
-    int jmlBarang = 0, totalBerat = 0;
+    private int jmlBarang = 0, totalBerat = 0;
 
-    ArrayList<Barang> listBarang = new ArrayList<>();
+    private ArrayList<Barang> listBarang = new ArrayList<>();
 
     public Keranjang() {
     }
 
-    void tambahBarang(Barang barang){
+    public void tambahBarang(Barang barang){
         if(jmlBarang+barang.getJumlahBarang() <= 5){
             listBarang.add(barang);
             jmlBarang +=barang.getJumlahBarang();
@@ -19,7 +19,7 @@ public class Keranjang {
         }
 
     }
-    int totalHarga(){
+    private int totalHarga(){
         int harga = 0;
         for ( Barang barang: listBarang
              ) {
@@ -28,7 +28,7 @@ public class Keranjang {
         return harga;
     }
 
-    void printHasil() {
+    public void printHasil() {
         System.out.println( "Jumlah Barang Di Keranjang Saat Ini : " + jmlBarang);
         System.out.println( "Barang Pada Keranjang: ");
         for(int i = 0; i<listBarang.size(); i++){

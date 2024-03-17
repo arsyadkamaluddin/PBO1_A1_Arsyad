@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-//        Scanner Sc = new Scanner(System.in);
 
         Barang barang1 = new Barang("Beras", 50000, 1);
         Barang barang2 = new Barang("Sabun", 10000, 2);
