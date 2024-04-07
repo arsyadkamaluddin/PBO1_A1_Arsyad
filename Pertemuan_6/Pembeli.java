@@ -7,7 +7,6 @@ public class Pembeli {
         this.barang = barang;
         this.jumlah = jumlah;
     }
-    
     public String getNama() {
         return nama;
     }

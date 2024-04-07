@@ -11,8 +11,12 @@ public class Toko {
         return this.gudang;
     }
     public void tambahAntrian(Pembeli buyer){
-        listPembeli.add(buyer);
-        System.out.println("Antrian berhasil ditambahkan");
+        if(!antrianPenuh()){
+            listPembeli.add(buyer);
+            System.out.println("Antrian berhasil ditambahkan");
+        }else{
+            System.out.println("Antrian penuh");
+        }
     }
     public void cekIsiAntrian(){
         System.out.println("\n====LIST ANTRIAN====");
@@ -31,5 +35,8 @@ public class Toko {
             System.out.println("Barang tidak tersedia");
             listPembeli.remove(0);
         }
+    }
+    private boolean antrianPenuh(){
+        return listPembeli.size()>=5;
     }
 }
