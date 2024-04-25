@@ -30,7 +30,7 @@ public class TravelAgent {
     private int countAvailableDate(String tanggal) {
         int count = 0;
         for (Trip trip : trips) {
-            if (trip.getDeparture() == tanggal) {
+            if (trip.getDeparture() == tanggal && trip.getQty()>0) {
                 count++;
             }
         }
@@ -40,7 +40,7 @@ public class TravelAgent {
     private int countAvailableType(TripType tripType) {
         int count = 0;
         for (Trip trip : trips) {
-            if (trip.getType() == tripType) {
+            if (trip.getType() == tripType && trip.getQty()>0) {
                 count++;
             }
         }
